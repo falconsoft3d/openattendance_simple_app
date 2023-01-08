@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ListScreen extends StatelessWidget {
    
@@ -8,13 +9,13 @@ class ListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold( 
       appBar: AppBar(
-        title: const Text('List'),
+        title: Text(AppLocalizations.of(context)!.list),
         
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'List',
-          style: TextStyle(
+          AppLocalizations.of(context)!.list,
+          style: const TextStyle(
             fontSize: 50,
             fontWeight: FontWeight.bold,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
    
@@ -8,13 +9,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold( 
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text(AppLocalizations.of(context)!.home),
         // Color
       ),
-      body: const Center(
-        child: Text(
-          'Home',
-          style: TextStyle(
+      body: Center(
+        child: Text(AppLocalizations.of(context)!.home,
+          style: const TextStyle(
             fontSize: 50,
             fontWeight: FontWeight.bold,
           ),

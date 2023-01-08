@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountScreen extends StatefulWidget {
    
   const AccountScreen({Key? key}) : super(key: key);
+
+  
 
   @override
   State<AccountScreen> createState() => _AccountScreenState();
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  final _portController = TextEditingController();
-  final _loginController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _urlController = TextEditingController();
+  final _portController = TextEditingController(text: "8069");
+  final _loginController = TextEditingController(text: "admin");
+  final _passwordController = TextEditingController(text: "admin");
+  final _urlController = TextEditingController(text: "https://demo-odoo.marlonfalcon.com");
+  
 
   Future signIn() async {
       await Future.delayed(const Duration(seconds: 2));
@@ -22,9 +26,31 @@ class _AccountScreenState extends State<AccountScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+    print(myLocale);
+
+    Locale _locale;
+    void setLocale(Locale value) {
+      // ---
+      print("=>");
+      print(value);
+      // ---
+      setState(() {
+                _locale = value;
+            });
+    }
+
+
+    // print save from Localizations
+    // if (AppLocalizations.of(context) != null) {
+    //    print(AppLocalizations.of(context)!.save);
+    // } else {
+    //   print('AppLocalizations.of(context) is null');
+    // }
+
     return  Scaffold( 
       appBar: AppBar(
-        title: const Text('Account'),
+        title: Text(AppLocalizations.of(context)!.account),
       ),
       body: SafeArea(
           child: Center(
@@ -32,14 +58,77 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-            
-                // Logo
-                const Icon(Icons.person, size: 100, 
-                     color: Colors.deepPurple),  
-                const SizedBox(height: 75),
-            
-              
+                // Language
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: DropdownButtonFormField(
+                      icon: const Icon(Icons.arrow_downward),
+                      decoration: const InputDecoration(
+                        border:  InputBorder.none,
+                        hintText: 'Select Language',
+                        prefixIcon: Icon(Icons.language),
+                      ),
+                      value: 'es',
+                      
+                      items: const [
+                        DropdownMenuItem(
+                          value: 'en',
+                          child: Text('English'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'es',
+                          child: Text('Spanish'),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        print(value);
+                        // Change language Localization
+                        // AppLocalizations.load(Locale(value));
+                        setLocale(Locale.fromSubtags(languageCode: value!));
+                         
+                      },
+                      ),
+                ),
 
+                const SizedBox(height: 25),
+
+
+                // Language
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: DropdownButtonFormField(
+                      icon: const Icon(Icons.arrow_downward),
+                      decoration: const InputDecoration(
+                        border:  InputBorder.none,
+                        hintText: 'Sistem',
+                        prefixIcon: Icon(Icons.laptop),
+                      ),
+                      value: '16',
+                      
+                      items: const [
+                        DropdownMenuItem(
+                          value: '16',
+                          child: Text('Odoo 16'),
+                        ),
+                        DropdownMenuItem(
+                          value: '15',
+                          child: Text('Odoo 15'),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        print(value);
+                        // formValues['role'] = value ?? 'Admin';
+
+                        
+                      },
+                      ),
+                ),
+
+                const SizedBox(height: 25),
+                
+
+
+                // URl
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -64,6 +153,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 const SizedBox(height: 25),
 
 
+                // Login
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -88,6 +178,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 const SizedBox(height: 25),
 
 
+                // Port
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -148,9 +239,9 @@ class _AccountScreenState extends State<AccountScreen> {
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                         ),
-                      child: const Center(
-                        child:  Text('Sign in',
-                        style: TextStyle(
+                      child: Center(
+                        child: Text(AppLocalizations.of(context)!.save,
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
