@@ -19,7 +19,9 @@ class _MyAppState extends State<MyApp> {
     return  MaterialApp(
       title: 'OpenAttendance',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.deepPurple,
+        primaryColor: Colors.deepPurple,
+        backgroundColor: Colors.deepPurple,
       ),
       debugShowCheckedModeBanner: false,
       home: const HomePage()
