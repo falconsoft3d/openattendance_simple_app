@@ -6,5 +6,13 @@
     "save" : "Save",
     "account" : "Account",
     "list" : "List",
-    "home" : "Home"
+    "home" : "Home",
+    "check_in" : "Check In",
+    "check_out" : "Check Out",
+    "slide_to_out" : "Slide to Check Out",
+    "slide_to_in" : "Slide to Check In",
+    "total_work_hours" : "Total Work Hours",
+    "hours" : "Hours",
+    "welcome" : "Welcome",
+    "today_status" : "Today`s Status"
 }

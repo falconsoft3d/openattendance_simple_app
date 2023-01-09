@@ -3,5 +3,13 @@
     "save" : "Guardar",
     "account" : "Cuenta",
     "list" : "Lista",
-    "home" : "Inicio"
+    "home" : "Inicio",
+    "check_in" : "Entrada",
+    "check_out" : "Salida",
+    "slide_to_out" : "Desliza para Salir",
+    "slide_to_in" :  "Desliza para Entrar",
+    "total_work_hours" : "Total Horas Trabajadas",
+    "hours" : "Horas",
+    "welcome" : "Bienvenido",
+    "today_status" : "Estado Hoy"
 }
