@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
               label: AppLocalizations.of(context)!.home,
             ),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.list),
+              icon: const Icon(Icons.calendar_month),
               label: AppLocalizations.of(context)!.list,
             ),
             BottomNavigationBarItem(
